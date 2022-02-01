@@ -20,6 +20,7 @@ const handler = (handlerName: string) => async (
     const response = await migration[handlerName]();
     callback(null, success(response));
   } catch (error) {
+    // @ts-ignore: Error type error
     callback(error);
   }
 };
